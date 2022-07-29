@@ -1,17 +1,18 @@
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
-
-const sss = ref<HTMLDivElement>();
-onMounted(() => {
-  sss.value?.click()
-});
+import { getCurrentInstance, onMounted, ref } from 'vue'
+import message, { ElMessage } from '@/components/ElMessage'
 
 function handleClick() {
-  console.log('per');
-
+  message({
+    message: '测试新闻',
+  })
 }
+
+const app = getCurrentInstance()!
 </script>
 
 <template>
-  <div ref="sss" @click="handleClick"></div>
+  <button ref="sss" @click="handleClick">
+    点击
+  </button>
 </template>
